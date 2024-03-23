@@ -319,6 +319,13 @@ test = {
     "12": test_12,
     "13": test_13,
     "14": test_14,
-}[sys.argv[1]]
+}
 
-test()
+for key in test:
+    try:
+        test[key]()
+        print(f"La prueba {key} fue exitosa")
+    except AssertionError:
+        print(f"La prueba {key} fallo")
+    except Exception as e:
+        print(f"La prueba {key} fallo con error {e}")
